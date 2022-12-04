@@ -13,6 +13,21 @@ use Eightfold\Sitemap\Url;
 
 use Eightfold\Sitemap\Changefreq;
 
+/**
+ * https://www.sitemaps.org
+ *
+ * Regarding priority: Some search engines, specifically Google, do not pay
+ * much attention to priority (or lastmod). By default, we set all pages to 0.5.
+ *
+ * In your meta.json files, you can use the priority member to overwrite the
+ * default. We recommend the following:
+ *
+ * 1.0-0.8: Homepage, product information, landing pages.
+ * 0.7-0.4: News articles, some weather services, blog posts, pages that no site
+ *          would be complete without.
+ * 0.3-0.0: FAQs, outdated info, old press releases, completely static pages that
+ *          are still relevant enough to keep from deleting entirely.
+ */
 class Sitemap implements Buildable
 {
     private const SCHEMA_VERSION = 'http://www.sitemaps.org/schemas/sitemap/0.9';
