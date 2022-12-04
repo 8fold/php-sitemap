@@ -1,8 +1,10 @@
-> Note: Delete the labels in the new repo and use https://github.com/jvandemo/copy-github-labels-cli to copy the ones found here to the new repo
+# 8fold Sitemap for PHP
 
-# 8fold {Name of product or project} for {language or framework}
+Generates valid XML document and sitemap elements based on the [Sitemap protocol](https://www.sitemaps.org).
 
-{brief description}
+|Schema |Version |
+|:------|:-------|
+|0.9    |Latest  |
 
 ## Installation
 
