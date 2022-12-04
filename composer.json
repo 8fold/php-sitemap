@@ -1,8 +1,8 @@
 {
-  "name": "vendor/project",
+  "name": "8fold/php-sitemap",
   "type": "library",
-  "description": "",
-  "license": "mixed",
+  "description": "A library for generating Sitemaps (XML)",
+  "license": "MIT",
   "authors": [
     {
       "name": "Josh Bruce",
