@@ -8,15 +8,33 @@ Generates valid XML document and sitemap elements based on the [Sitemap protocol
 
 ## Installation
 
-{how does one install the product}
+```
+composer require 8fold/php-sitemap
+```
 
 ## Usage
 
-{brief example of how to use the product}
+You have received the required metadata in an array; could be the results of a database query.
+
+```php
+use Eigthfold\Sitemap\Sitemap;
+
+$sitemap = Sitemap::create('http://yourdomain.com');
+
+$items = // your array of items
+
+foreach ($items as $item) {
+  $sitemap = $sitemap->addUrl(
+    $item->path
+  );
+}
+
+(string) $sitemap;
+```
 
 ## Details
 
-{origin story, principles, etc.}
+Designed to fit within a loop.
 
 ## Other
 
