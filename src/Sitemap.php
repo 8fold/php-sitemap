@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace Eightfold\Sitemap;
 
-use Eightfold\XMLBuilder\Contracts\Buildable;
+use Stringable;
+// use Eightfold\XMLBuilder\Contracts\Buildable;
 
 use DateTime;
 
@@ -28,7 +29,7 @@ use Eightfold\Sitemap\Changefreq;
  * 0.3-0.0: FAQs, outdated info, old press releases, completely static pages that
  *          are still relevant enough to keep from deleting entirely.
  */
-class Sitemap implements Buildable
+class Sitemap implements Stringable
 {
     private const SCHEMA_VERSION = 'http://www.sitemaps.org/schemas/sitemap/0.9';
 
@@ -72,11 +73,6 @@ class Sitemap implements Buildable
         $this->urls[$loc] = $u;
 
         return $this;
-    }
-
-    public function build(): string
-    {
-        return (string) $this;
     }
 
     public function __toString(): string
