@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace Eightfold\Sitemap;
 
-use Eightfold\XMLBuilder\Contracts\Buildable;
+use Stringable;
+// use Eightfold\XMLBuilder\Contracts\Buildable;
 
 use DateTime;
 
@@ -11,7 +12,7 @@ use Eightfold\XMLBuilder\Element;
 
 use Eightfold\Sitemap\Changefreq;
 
-class Url implements Buildable
+class Url implements Stringable
 {
     private Element|string $lastmod = '';
 
@@ -56,11 +57,6 @@ class Url implements Buildable
             strval($priority)
         );
         return $this;
-    }
-
-    public function build(): string
-    {
-        return (string) $this;
     }
 
     public function __toString(): string
