@@ -4,11 +4,11 @@ declare(strict_types=1);
 namespace Eightfold\Sitemap;
 
 use Stringable;
-// use Eightfold\XMLBuilder\Contracts\Buildable;
+// use Eightfold\XmlBuilder\Contracts\Buildable;
 
 use DateTime;
 
-use Eightfold\XMLBuilder\Element;
+use Eightfold\XmlBuilder\Element;
 
 use Eightfold\Sitemap\Changefreq;
 
