@@ -1,4 +1,4 @@
-# Maintained in 8fold/php-repo-skeleton; do not edit directly
+# Maintained in 8fold/php-repo-skeleton
 
 includes:
     - vendor/spaze/phpstan-disallowed-calls/extension.neon
@@ -9,7 +9,7 @@ includes:
     - vendor/spaze/phpstan-disallowed-calls/disallowed-execution-calls.neon
 
 parameters:
-    level: 10
+    level: 9
     paths:
         - bin
         - src
@@ -22,3 +22,7 @@ parameters:
     reportNonIntStringArrayKey: true
     strictRules:
         allRules: true
+    ignoreErrors:
+        # Added to account for XML Builder not have known elements
+        - '#Call to an undefined static method Eightfold\\XmlBuilder\\Element::(.*)#'
+        - '#Call to an undefined static method Eightfold\\XmlBuilder\\Document::(.*)#'

@@ -13,10 +13,7 @@ use Eightfold\Sitemap\Changefreq;
 
 class DocumentTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function can_reproduce_0_9_sample(): void
+    public function test_can_reproduce_0_9_sample(): void
     {
         $expected = file_get_contents(__DIR__ . '/sample0_9.xml');
 
@@ -46,51 +43,44 @@ class DocumentTest extends TestCase
                 lastmod: DateTime::createFromFormat('Y-m-d', '2004-11-23')
             );
 
-        $this->assertSame(
+        parent::assertSame(
             $expected,
             $result . "\n"
         );
     }
 
-    /**
-     * @test
-     */
-    public function has_expected_content(): void
+    public function test_has_expected_content(): void
     {
+        // phpcs:disable
         $expected = <<<xml
-        <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+        <?xml encoding="UTF-8" standalone="yes" version="1.0" ?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://yourdomain.com/</loc></url></urlset>
         xml;
+        // phpcs:enable
 
         $result = (string) Sitemap::create('https://yourdomain.com')
             ->addUrl('/');
 
-        $this->assertSame(
+        parent::assertSame(
             $expected,
             $result
         );
     }
 
-    /**
-     * @test
-     */
-    public function has_expected_schema(): void
+    public function test_has_expected_schema(): void
     {
         $result = (string) Sitemap::create('https://yourdomain.com');
 
-        $this->assertTrue(
+        parent::assertTrue(
             str_contains($result, '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"')
         );
     }
 
-    /**
-     * @test
-     */
-    public function must_be_utf8_encoded(): void
+    public function test_must_be_utf8_encoded(): void
     {
         $result = (string) Sitemap::create('https://yourdomain.com');
 
-        $this->assertTrue(
+        parent::assertTrue(
             str_contains($result, 'encoding="UTF-8"')
         );
     }

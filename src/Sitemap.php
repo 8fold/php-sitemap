@@ -46,7 +46,7 @@ class Sitemap implements Stringable
 
     public function addUrl(
         string $loc,
-        ?DateTime $lastmod = null,
+        DateTime|false $lastmod = false,
         ?Changefreq $changefreq = null,
         ?float $priority = null,
         bool $fullLastmod = false
@@ -55,7 +55,7 @@ class Sitemap implements Stringable
             $this->host . $loc
         );
 
-        if ($lastmod !== null) {
+        if ($lastmod !== false) {
             $u = $u->withLastmod($lastmod, $fullLastmod);
         }
 
